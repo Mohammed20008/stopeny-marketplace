@@ -43,8 +43,15 @@ import {
 } from "@/components/ui/sheet";
 import Image from "next/image";
 
-export default function CartIcon() {
-  const translateDiv = () => {};
+export default function CartIcon({
+  onClick,
+  isCartOpen,
+  dropdownRef,
+}: {
+  onClick: () => void;
+  isCartOpen: boolean;
+  dropdownRef: React.RefObject<HTMLDivElement>;
+}) {
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -55,25 +62,27 @@ export default function CartIcon() {
               alt="img"
               width={30}
               height={30}
-              onClick={translateDiv}
+              onClick={onClick}
             />
           </div>
         </Button>
       </SheetTrigger>
-      <SheetContent className="bg-gray-100">
-        <SheetHeader>
-          <SheetTitle>Edit profile</SheetTitle>
-          <SheetDescription></SheetDescription>
-        </SheetHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4"></div>
-        </div>
-        <SheetFooter>
-          <SheetClose asChild>
-            <Button type="submit">Save changes</Button>
-          </SheetClose>
-        </SheetFooter>
-      </SheetContent>
+      {isCartOpen && (
+        <SheetContent ref={dropdownRef} className="bg-gray-100">
+          <SheetHeader>
+            <SheetTitle>Edit profile</SheetTitle>
+            <SheetDescription></SheetDescription>
+          </SheetHeader>
+          <div className="grid gap-4 py-4">
+            <div className="grid grid-cols-4 items-center gap-4"></div>
+          </div>
+          <SheetFooter>
+            <SheetClose asChild>
+              <Button type="submit">Save changes</Button>
+            </SheetClose>
+          </SheetFooter>
+        </SheetContent>
+      )}
     </Sheet>
   );
 }
