@@ -14,19 +14,19 @@ const Categories = () => {
             className="group relative h-80 w-60 shrink-0 rounded-md"
           >
             <Link href="/list">
-              <CardContent className="rounded-md">
+              <CardContent className="p4 h-full w-full rounded-md bg-black/90 px-2">
                 <Image
                   src={slide.image}
                   alt="category"
                   fill
-                  className="z-10 rounded-md object-cover transition-opacity delay-100 duration-500 hover:opacity-0"
+                  className="z-10 rounded-md object-contain transition-transform delay-100 duration-500 hover:-translate-y-4"
                 />
-                <Image
+                {/* <Image
                   src="/shopping-bag.png"
                   alt="category"
                   fill
                   className="rounded-md object-contain"
-                />
+                /> */}
               </CardContent>
             </Link>
 

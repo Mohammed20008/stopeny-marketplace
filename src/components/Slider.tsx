@@ -12,8 +12,8 @@ import Image from "next/image";
 import * as React from "react";
 const page = () => {
   return (
-    <div className="h-screen w-screen md:px-16">
-      <Carousel className="w-full">
+    <div className="h-screen w-screen px-16">
+      <Carousel className="">
         <CarouselContent>
           {slides.map((slide, index) => (
             <CarouselItem key={slide.id}>
@@ -22,29 +22,33 @@ const page = () => {
                   className={`relative flex h-[calc(100vh-80px)] w-full flex-col items-center lg:flex-row ${slide.bg}`}
                 >
                   {/* Text */}
-                  <div className="flex h-1/2 w-1/2 flex-col items-center justify-center gap-6 text-center md:w-full md:text-6xl lg:h-[calc(100vh-80px)] lg:w-1/2">
-                    <p className="relative flex items-center font-medium leading-snug tracking-tight">
-                      {slide.content}
+                  <div className="flex h-1/2 w-full flex-col items-center justify-center gap-6 px-4 text-center md:w-full md:text-3xl lg:h-[calc(100vh-80px)] lg:w-1/2 lg:text-4xl">
+                    <p className="relative flex items-center font-medium leading-snug tracking-tight text-gray-600">
+                      {`${slide.content}`}
                       {index === 0 && (
-                        <Image
-                          alt="test"
-                          src="/feather.png"
-                          width={60}
-                          height={40}
-                          className="absolute -right-6 -top-2"
-                        />
+                        <span className="absolute -right-10 -top-4 h-10 w-10 md:-right-4 md:top-8 md:h-20 md:w-20 lg:right-16 lg:top-10 xl:-right-10 xl:-top-12">
+                          {" "}
+                          <Image
+                            alt="test"
+                            fill
+                            src="/feather.png"
+                            className="absolute md:right-0 md:top-0 xl:-right-6 xl:top-0"
+                          />
+                        </span>
                       )}
                     </p>
-                    <p className="text-3xl xl:text-6xl">{slide.title}</p>
+                    <p className="text-3xl font-medium xl:text-6xl">
+                      {slide.title}
+                    </p>
                     <Button>Shop Now!</Button>
                   </div>
                   {/* Image */}
-                  <div className="relative h-1/2 w-screen md:w-full lg:h-[calc(100vh-80px)] lg:w-1/2">
+                  <div className="relative h-1/2 w-full md:w-full lg:h-[400px] lg:w-1/2">
                     <Image
                       src={slide.image}
                       alt="slide"
                       fill
-                      className=" object-contain
+                      className="object-contain
                       "
                     />
                   </div>

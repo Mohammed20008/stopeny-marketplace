@@ -5,7 +5,7 @@ import Slider from "@/components/Slider";
 export default function Home() {
   return (
     <main className="w-screen">
-      <div className="w-fit">
+      <div className="">
         <Slider />
       </div>
       <div className="">
