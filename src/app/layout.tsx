@@ -5,6 +5,7 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Suspense } from "react";
 import Loading from "./loading";
+import { NavigationMenuDemo } from "@/components/TopMenu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className}`}>
         <NavBar />
+        {/* <NavigationMenuDemo /> */}
         <main className="mt-20 flex min-h-screen">
           <Suspense fallback={<Loading />}>{children}</Suspense>
         </main>

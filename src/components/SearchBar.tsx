@@ -15,22 +15,22 @@ const SearchBar = () => {
   return (
     <form
       onSubmit={handleSearch}
-      className="flex flex-1 items-center gap-2 rounded-md  bg-gray-100 p-2"
+      className="flex w-full flex-1 items-center rounded-md bg-gray-100 p-2"
     >
       <input
         name="inputValue"
         type="text"
-        placeholder="Search"
+        placeholder={"Search"}
         className="flex-1 bg-transparent outline-none"
       />
-      <button>
+      <button className=" shrink-0">
         {" "}
         <Image
           src="/search.png"
           alt="find"
-          width={24}
-          height={24}
-          className="cursor-pointer"
+          width={20}
+          height={20}
+          className="cursor-pointer opacity-50"
         />
       </button>
     </form>

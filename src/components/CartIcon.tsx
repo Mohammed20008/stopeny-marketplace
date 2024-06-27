@@ -29,6 +29,7 @@
 //   );
 // };
 // export default CartIcon;
+
 import { Button } from "@/components/ui/button";
 
 import {
@@ -43,46 +44,17 @@ import {
 } from "@/components/ui/sheet";
 import Image from "next/image";
 
-export default function CartIcon({
-  onClick,
-  isCartOpen,
-  dropdownRef,
-}: {
-  onClick: () => void;
-  isCartOpen: boolean;
-  dropdownRef: React.RefObject<HTMLDivElement>;
-}) {
+export default function CartIcon() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline">
+        <Button variant="ghost">
           <div className="relative">
-            <Image
-              src="/cart.png"
-              alt="img"
-              width={30}
-              height={30}
-              onClick={onClick}
-            />
+            <Image src="/cart.png" alt="img" width={30} height={30} />
           </div>
         </Button>
       </SheetTrigger>
-      {isCartOpen && (
-        <SheetContent ref={dropdownRef} className="bg-gray-100">
-          <SheetHeader>
-            <SheetTitle>Edit profile</SheetTitle>
-            <SheetDescription></SheetDescription>
-          </SheetHeader>
-          <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-4 items-center gap-4"></div>
-          </div>
-          <SheetFooter>
-            <SheetClose asChild>
-              <Button type="submit">Save changes</Button>
-            </SheetClose>
-          </SheetFooter>
-        </SheetContent>
-      )}
+      <SheetContent className="bg-gray-100"></SheetContent>
     </Sheet>
   );
 }

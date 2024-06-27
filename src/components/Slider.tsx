@@ -22,7 +22,7 @@ const page = () => {
                   className={`relative flex h-[calc(100vh-80px)] w-full flex-col items-center lg:flex-row ${slide.bg}`}
                 >
                   {/* Text */}
-                  <div className="flex h-1/2 w-1/2 flex-col items-center justify-center gap-6 text-center md:w-full md:text-6xl lg:h-[calc(100vh-80px)]">
+                  <div className="flex h-1/2 w-1/2 flex-col items-center justify-center gap-6 text-center md:w-full md:text-6xl lg:h-[calc(100vh-80px)] lg:w-1/2">
                     <p className="">{slide.content}</p>
                     <p className="text-3xl xl:text-6xl">{slide.title}</p>
                     <Button>Shop Now!</Button>

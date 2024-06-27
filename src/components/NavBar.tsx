@@ -1,9 +1,9 @@
 import Link from "next/link";
-import Menue from "./Menu";
 import SearchBar from "./SearchBar";
 import Icons from "./Icons";
 import Image from "next/image";
-import { HoverEffect } from "./ui/card-hover-effect";
+import { NavigationMenuDemo } from "./TopMenu";
+import { MobileMenu } from "./Menu";
 const links = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
@@ -13,10 +13,10 @@ const links = [
 ];
 const NavBar = () => {
   return (
-    <div className="fixed inset-x-0 top-0 z-50 flex h-20 items-center justify-center bg-white bg-opacity-60 px-4 backdrop-blur-lg md:px-16 lg:px-16 2xl:px-64">
+    <div className="fixed inset-x-0 top-0 z-50 flex h-20 items-center justify-center bg-white bg-opacity-80 shadow-2xl backdrop-blur-xl md:px-6 lg:px-6 2xl:px-64">
       {/* mobile */}
-      <div className="flex w-full justify-between md:hidden">
-        <Link href="/" className="">
+      <div className="flex w-full justify-between px-4 md:hidden">
+        <Link href="/" className=" flex shrink-0">
           <Image
             src="/shopping-bag.png"
             alt="shopcart"
@@ -24,13 +24,17 @@ const NavBar = () => {
             height={40}
           />
         </Link>
-        <Menue />
+        <div className="">
+          <SearchBar />
+        </div>
+
+        <MobileMenu />
       </div>
       {/* bigscreen */}
-      <div className="hidden h-full w-full md:flex">
+      <div className="hidden h-full w-full justify-between md:flex">
         {/* leftsection */}
-        <div className="flex flex-1 items-center xl:w-1/2">
-          <Link href="/" className="mr-4 flex">
+        <div className="flex items-center xl:w-1/2">
+          <Link href="/" className="mr-4 flex shrink-0">
             <Image
               src="/shopping-bag.png"
               alt="shopcart"
@@ -38,14 +42,26 @@ const NavBar = () => {
               height={40}
             />
           </Link>
-          <div className="hidden space-x-4 lg:flex">
+          {/* <div className="hidden space-x-4 lg:flex">
             <HoverEffect items={links} />
+          </div> */}
+          <div className="hidden lg:flex">
+            <NavigationMenuDemo />
           </div>
         </div>
         {/* right */}
-        <div className="flex w-1/2 items-center justify-between">
-          <SearchBar />
-          <Icons />
+        <div className="flex w-2/3 items-center lg:w-1/2">
+          <div className="flex flex-1">
+            {" "}
+            <SearchBar />
+          </div>
+
+          <div className="flex shrink-0">
+            <Icons />
+          </div>
+          <div className="lg:hidden">
+            <MobileMenu />
+          </div>
         </div>
       </div>
     </div>
