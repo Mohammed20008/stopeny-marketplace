@@ -1,9 +1,9 @@
 export const slides = [
   {
     id: 1,
-    title: "Slide 1",
-    content: "Slide 1 Content",
-    image: "/slide1.jpg",
+    title: "ASUS ZENBOOK",
+    content: `The Magic Begins From Here`,
+    image: "/asusZenbook.png",
     url: "/slide1",
     bg: "bg-gradient-to-b from-sky-200 to-sky-50",
   },

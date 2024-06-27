@@ -15,7 +15,7 @@ const page = () => {
     <div className="h-screen w-screen md:px-16">
       <Carousel className="w-full">
         <CarouselContent>
-          {slides.map((slide) => (
+          {slides.map((slide, index) => (
             <CarouselItem key={slide.id}>
               <div key={slide.id}>
                 <div
@@ -23,7 +23,18 @@ const page = () => {
                 >
                   {/* Text */}
                   <div className="flex h-1/2 w-1/2 flex-col items-center justify-center gap-6 text-center md:w-full md:text-6xl lg:h-[calc(100vh-80px)] lg:w-1/2">
-                    <p className="">{slide.content}</p>
+                    <p className="relative flex items-center font-medium leading-snug tracking-tight">
+                      {slide.content}
+                      {index === 0 && (
+                        <Image
+                          alt="test"
+                          src="/feather.png"
+                          width={60}
+                          height={40}
+                          className="absolute -right-6 -top-2"
+                        />
+                      )}
+                    </p>
                     <p className="text-3xl xl:text-6xl">{slide.title}</p>
                     <Button>Shop Now!</Button>
                   </div>
@@ -33,7 +44,7 @@ const page = () => {
                       src={slide.image}
                       alt="slide"
                       fill
-                      className=" object-cover
+                      className=" object-contain
                       "
                     />
                   </div>
